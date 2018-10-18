@@ -26,10 +26,12 @@ export function extractFields (convertedJSON){
     let myObj = {...convertedJSON}
     let fields = [];
     for (let i in myObj){
-        fields.push([i].toString)
-        if()
+        fields.push([i].toString())
+        if(i.match(/address/gi)){
+            fields.push((Object.keys(myObj[i])).map(el=>el))
+        }
     }
- 
+ return fields
 }
 
 
@@ -39,5 +41,5 @@ function parseAddressField(fieldName){
         throw ("field name has to be a string")
     }
 
-    
+
 }
