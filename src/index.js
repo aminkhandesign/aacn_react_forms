@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import App from './components/eco-systems/app';
 import * as serviceWorker from './serviceWorker';
-import bootstrap from 'boot-strap'
+
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
