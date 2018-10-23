@@ -41,7 +41,7 @@ class AACN_FORM extends Component {
         ev.preventDefault();
         ev.persist()
         console.log("key pressed!!");
-        this.setState( (prevState=>( {payload: {...prevState.payload,...{[ev.target.field]: ev.target.value }}})))
+        this.setState( (prevState=>( {payload: {...prevState.payload,...{[ev.target.name]: ev.target.value }}})))
         console.log(this.state.payload)
     
     }
