@@ -10,9 +10,11 @@ function FormElement(props){
       case "input":
      render=[(
       
-    <div className="form-group">
-        <label htmlFor={config.field} >{config.label}</label>
-        <input className="form-control" name={config.field} type={config.input} placeholder={config.placeholder} required={config.validate}  value="" onChange={props.handlers.handleChange}/>
+    <div className="form-group row">
+        <label htmlFor={config.field} className="col-md-3 control-label" >{config.label}</label>
+        <div className="col-md-9">
+        <input className="form-control" name={config.field} type={config.input} placeholder={config.placeholder} required={config.validate}  value={props.mystate.payload[config.field]} onChange={props.handlers.handleChange}/>
+        </div>
     </div>
       ) ]
       break;
@@ -20,11 +22,14 @@ function FormElement(props){
       case "select":
       render = [ (
       
-    <div className="form-group">
-        <label htmlFor={config.field} >{config.label}</label>
-        <select className="custom-select" name={config.field} type={config.input} placeholder={config.placeholder} required={config.validate}>
-            {config.type[1].map(el=><option value={el}>{el}</option> )}
+    <div className="form-group row">
+        <label htmlFor={config.field} className="col-md-3 control-label">{config.label}</label>
+    <div className="col-md-9">
+        <select className="form-control" name={config.field} type={config.input} placeholder={config.placeholder} required={config.validate} onChange={props.handlers.handleChange}>
+             
+            {config.type[1].map((el,i)=><option key={i} value={el}>{el}</option> )}
         </select>
+        </div>
     </div>
       )]
       break;
@@ -33,9 +38,11 @@ function FormElement(props){
       case "radio":
       render = [ (
       
-    <div className="form-group">
-        <label htmlFor={config.field}>{config.label}</label>
-        {config.type[1].map( (el,i) =><div> <span>{config.type[1][i]}</span><input  type="radio" name={config.field} value={el} /></div>)}
+    <div className="form-group row">
+        <label className="col-md-3 control-label" htmlFor={config.field}>{config.label}</label>
+        <div className="col-md-9">
+        {config.type[1].map( (el,i) =><div key={i}> <span>{config.type[1][i]}</span><input  type="radio" name={config.field} value={el} /> </div>)}
+    </div>
     </div>
       )]
 
