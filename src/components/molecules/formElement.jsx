@@ -12,7 +12,7 @@ function FormElement(props){
       
     <div className="form-group">
         <label htmlFor={config.field} >{config.label}</label>
-        <input className="form-control" name={config.field} type={config.input} placeholder={config.placeholder} required={config.validate}  value="" onChange={props.handlers.changeHandler}/>
+        <input className="form-control" name={config.field} type={config.input} placeholder={config.placeholder} required={config.validate}  value="" onChange={props.handlers.handleChange}/>
     </div>
       ) ]
       break;

@@ -13,7 +13,7 @@ class AACN_FORM extends Component {
 
         let formElements=[];
         if(this.props.config){
-           formElements =  this.props.config[1].map(el=><FormElement handlers={this.props.handlers} config={el} />)
+           formElements =  this.props.config[1].map(el=><FormElement handlers={this.handlers} config={el} />)
         }
         return formElements
     }
@@ -22,9 +22,11 @@ class AACN_FORM extends Component {
     //here we define our event handlers, Our inputs are controlled components 
     handleChange = (ev)=>{
         ev.preventDefault();
-        console.log("key pressed!!")
-        this.setState( prevState => ({payload: {} })
+        ev.persist()
+        console.log("key pressed!!");
+        this.setState( (prevState=>( {payload:{...prevState.payload,...{[ev.target.name]:ev.target.value }  } }) ))
         ev.target.value = this.state.payload[ev.target.name]
+        console.log("STATE:",this.state.payload)
     
     }
     handleSubmit=(ev)=>{
@@ -47,7 +49,7 @@ class AACN_FORM extends Component {
                 {this.renderForm()}
                 <div >
                  <button className="btn btn-primary">CANCEL</button>
-                 <button  onSubmit={this.props.handlers.onSubmit} className="btn btn-primary" type="submit">SUBMIT</button>
+                 <button  onSubmit={this.handleSubmit} className="btn btn-primary" type="submit">SUBMIT</button>
                 </div>
 
                 </div>
