@@ -5,33 +5,43 @@ import FormElement from '../molecules/formElement.jsx'
 class AACN_FORM extends Component {
     constructor(props) {
         super(props);
-        let myList = props.config[1].map(el=>el.field);
+        let formFields = props.config[1];
+        let myList =formFields.map(el=>el.field);
         let payLoadFromProps = {};
-        for(let i of myList){
-            payLoadFromProps[i]="";
+        for(let i of formFields){
+            payLoadFromProps[i.field]="";
+            if (i.type[0]==="select" || i.type[0]==="radio" ){
+                payLoadFromProps[i.field]=i.type[1][0]
+            }
+    
         }
 
-
+        console.log("payLoadFromProps : ", payLoadFromProps)
 
 
         this.state = {payload:{...payLoadFromProps} }
         //this is our state which we will have to poulate from the values in our config object
         
-        this.setOptionValue()
     }
 
     renderForm(){
 
         let formElements=[];
         if(this.props.config){
-           formElements =  this.props.config[1].map(el=><FormElement  mystate={this.state} handlers={this.handlers} config={el} />)
+           formElements =  this.props.config[1].map(el=><FormElement key={el.field} mystate={this.state} handlers={this.handlers} config={el} />)
         }
         return formElements
     }
 
+    //This method sets the intial value in state of the dropdown menus not used
     setOptionValue(){
-       for(let i of this.props.config){
-         
+        console.log("setOptionValue  working!")
+       for(let i of this.props.config[1]){
+         if(i.type[0]==="select" || i.type[0]==="radio"){
+             console.log("THIS ONE HAS OPTIONS!!!",i.type[1])
+             this.setState(prevState=>({payLoad:{...prevState.payload[i],...{[i.type]:i.type[1][0]} }} ))
+             console.log(this.state.payload)
+         }
        }
     }
 
@@ -48,7 +58,6 @@ class AACN_FORM extends Component {
     handleSubmit=(ev)=>{
         ev.preventDefault();
         console.log("submit fired")
-        this.setOptionValue();
         
         let formInfo = JSON.stringify(this.state.payload);
         let endPoint = this.props.endPoint || "#";
@@ -71,6 +80,7 @@ class AACN_FORM extends Component {
    
    
     handleCancel=(ev)=>{
+        console.log("CANCELLED")
         this.renderForm()
 
     }
