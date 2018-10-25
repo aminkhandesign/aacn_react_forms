@@ -3,6 +3,7 @@ import AACN_FORM from '../organisms/aacn_form.jsx';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import myConfig from '../../data/form-config.js'
+const  endpoint = "https://jsonplaceholder.typicode.com/photos"
 
 
 // let myConfig = [ "MY REACT FORM", [{type:["input"],label:"First Name", placeholder:"enter name",validate:false, field:"fname"},
@@ -26,7 +27,7 @@ class App extends Component {
 
         return (  
             <>
-            <AACN_FORM  config={myConfig} />
+            <AACN_FORM  endpoint={endpoint} config={myConfig} />
   
             </>
                );
