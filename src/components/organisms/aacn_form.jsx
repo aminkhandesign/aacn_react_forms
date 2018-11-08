@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import FormElement from '../molecules/formElement.jsx'
+import FormElement from '../molecules/formElement.jsx';
+import axios from 'axios';
+
 
 
 class AACN_FORM extends Component {
@@ -23,13 +25,13 @@ class AACN_FORM extends Component {
 
     setInitialState =()=>{
 
-        let formFields = this.props.config[1];
+        let formFields =[...this.props.config[1]];
         let myList =formFields.map(el=>el.field);
         let payLoadFromProps = {};
-        for(let i of formFields){
-            payLoadFromProps[i.field]="";
-            if (i.type[0]==="select" || i.type[0]==="radio" ){
-                payLoadFromProps[i.field]=i.type[1][0]
+        for(let i in formFields ){
+            payLoadFromProps[formFields[i].field]="";
+            if (formFields[i].type[0] === "select" || formFields[i].type[0]==="radio" ){
+                payLoadFromProps[formFields[i].field] = formFields[i].type[1][0]
             }
     
         }
@@ -64,9 +66,9 @@ class AACN_FORM extends Component {
                 // "Content-Type": "application/x-www-form-urlencoded",
             }
         }
-        fetch(endPoint,fetchData)
-        .then(res=>console.log("succes"))
-        .catch(err=>this.setState(console.log(`Did not send: ${err}`)))
+        axios.post(endPoint, formInfo).then(function (response) {
+                console.log(response)})
+    
 
         console.log("PAYLOAD: ",this.state.payload)
 
