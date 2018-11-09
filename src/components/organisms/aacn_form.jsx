@@ -11,7 +11,7 @@ class AACN_FORM extends Component {
         //this is our state which we will have to poulate from the values in our config object
      this.payLoadFromProps = this.setInitialState()
         this.state = {payload:{...this.payLoadFromProps}}
-        
+  
     }
 
     renderForm(){
@@ -67,7 +67,7 @@ class AACN_FORM extends Component {
             }
         }
         axios.post(endPoint, formInfo).then(function (response) {
-                console.log(response)})
+                console.log("SUCESSS")}).catch(err=>console.log("SOMETHING WENT WRONG",err))
     
 
         console.log("PAYLOAD: ",this.state.payload)
@@ -85,7 +85,26 @@ class AACN_FORM extends Component {
     }
     keyCount= 0;
     handlers = {handleChange:this.handleChange,handleSubmit:this.handleSubmit,handleFocus:this.handleFocus}
-    render() { 
+
+        autofill(){
+            let localData=this.props.myGetData;
+            console.log("FORM  CDMount AutoFill()" ,localData)
+            for(let i in localData){
+                console.log(i)
+                console.log(i in this.state.payload)
+                if(i in this.state.payload){
+                    this.setState(prevState=>({payload:{...prevState.payload,[i]:localData[i]}}))            }
+        }
+    }
+  componentDidMount(){
+  this.autofill()
+  console.log("FORM CDMount ",this.props.myGetData)
+  }
+  componentDidUpdate(){
+ console.log("FORM UPDATED!!",this.props.myGetData)
+ this.autofill()
+    }
+    render() {
 
         return ( 
             
