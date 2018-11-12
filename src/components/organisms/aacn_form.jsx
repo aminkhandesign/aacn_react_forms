@@ -50,27 +50,33 @@ class AACN_FORM extends Component {
     
     }
     handleSubmit=(ev)=>{
-        //ev.preventDefault();
-        if(ev.target.value="")
+        ev.persist()
+        ev.preventDefault()
+
         console.log("submit fired")
-        
+        let userId = this.props.userId;
+        console.log()
         let formInfo = JSON.stringify(this.state.payload);
-        let endPoint = this.props.endPoint || "#";
-        const fetchData = {
+        let formInfo_obj = {...this.state.payload,id:userId}
+        let endPoint = this.props.endpoint+"/?user="+userId;
+        console.log("endpoint: ", endPoint)
+        const postData = {
             method: "POST",
-            mode: "same-origin", // no-cors, cors, *same-origin
+            accept: 'application/json',
+            data:formInfo_obj,
+            url:endPoint,
+            mode: "no-cors", // no-cors, cors, *same-origin
             cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-            credentials: "same-origin", // include, same-origin, *omit
             headers: {
                 "Content-Type": "application/json; charset=utf-8",
                 // "Content-Type": "application/x-www-form-urlencoded",
             }
         }
-        axios.post(endPoint, formInfo).then(function (response) {
+        axios(postData, formInfo_obj).then(function (response) {
                 console.log("SUCESSS")}).catch(err=>console.log("SOMETHING WENT WRONG",err))
     
 
-        console.log("PAYLOAD: ",this.state.payload)
+        console.log("PAYLOAD: ",formInfo_obj)
 
 
 
@@ -91,7 +97,7 @@ class AACN_FORM extends Component {
             console.log("FORM  CDMount AutoFill()" ,localData)
             for(let i in localData){
                 console.log(i)
-                console.log(i in this.state.payload)
+                console.log("AUTO FILL:",i in this.state.payload,i)
                 if(i in this.state.payload){
                     this.setState(prevState=>({payload:{...prevState.payload,[i]:localData[i]}}))            }
         }
@@ -100,10 +106,11 @@ class AACN_FORM extends Component {
   this.autofill()
   console.log("FORM CDMount ",this.props.myGetData)
   }
-  componentDidUpdate(){
- console.log("FORM UPDATED!!",this.props.myGetData)
- this.autofill()
-    }
+ componentWillReceiveProps(next){
+     this.forceUpdate()
+     console.log("THIS IS CWRProps on FORM",this.props)
+ }
+  
     render() {
 
         return ( 
