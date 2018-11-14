@@ -32,8 +32,8 @@ xhttp.onreadystatechange = function () {
             // Find the right address
             let count; //not iterating??
             for (count = 0; count < responseData.result.length; count++) {
-                if (responseData.result[0].addressType === "Mailing") {
-                    getData = responseData.result[0];
+                if (responseData.result[count].addressType === "Mailing") {
+                    getData = responseData.result[count];
                     break;
                 }
             }

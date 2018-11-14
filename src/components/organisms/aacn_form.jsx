@@ -109,6 +109,7 @@ class AACN_FORM extends Component {
     componentDidMount() {
         this.autofill();
         console.log("FORM CDMount ", this.props.myGetData);
+        const myCountries= countryData
     }
 
     componentWillReceiveProps(next) {
