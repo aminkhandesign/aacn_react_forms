@@ -1,16 +1,18 @@
-const  myConfig = 
+const myConfig =
+    [
+        "Mailing Address",
+        [
+            { type: ["input"], label: "Company", placeholder: "Company name", validate: false, field: "name" },
+            { type: ["input"], label: "Address", placeholder: "Line 1", validate: false, field: "line1" },
+            { type: ["input"], label: "", placeholder: "Line 2", validate: false, field: "line2" },
+            { type: ["input"], label: "City", placeholder: "City", validate: false, field: "city" },
+            { type: ["input"], label: "ZIP", placeholder: "Postal Code", validate: false, field: "postCode" },
+            { type: ["select", [["AZ","code"], ["CA","code"], ["CO","code"]]], label: "State", placeholder: "state", validate: false, field: "state" },
+            {type:["hidden"], label:"key",placeholder:"", validate:false,field:"key"},
+            { type: ["select", [["UNITED STATES","code"], ["UNITED KINGDOM","ukcode"]]], label: "Country", placeholder: "country", validate: false, field: "country" }            
+        ]
+    ];
 
-
-[ "AACN FORM",
-[{type:["input"],label:"First Name", placeholder:"enter name",validate:false, field:"name"},
-{type:["input"],placeholder:"enter name", label:"Surame",validate:false, field:"surname"},
-{type:["input"],placeholder:"Line 1", label:"Address",validate:false, field:"line1"},
-{type:["input"],placeholder:"Line 2", label:"",validate:false, field:"line2"},
-{type:["input"],placeholder:"City", label:"City",validate:false, field:"city"},
-{type:["input"],placeholder:"zipcode", label:"ZIP",validate:false, field:"zipcode"},
-{type:["input"],placeholder:"State", label:"State",validate:false, field:"state"},
-{type:["select" , ["US","UK"]], label:"country", placeholder:"country",validate:false, field:"country"},
-{type:["input"],placeholder:"enter email",validate:false, field:"email",label:"email"}]]
 
 
 export default myConfig

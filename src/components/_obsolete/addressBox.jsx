@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import InputField from '../atoms/inputField.jsx';
-import Regions from '../data_assets/data.js'
+import Regions from './regions1.js'
 import Button from '../atoms/buttons.jsx'
 import update from 'immutability-helper';
 
