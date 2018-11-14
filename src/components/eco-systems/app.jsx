@@ -8,8 +8,8 @@ import myConfig from '../../data/form-config.js'
 
 let getData = {fname:"peter",line1:"this is address"} 
 let myUrl = "https://jsonplaceholder.typicode.com/users";
-let user = 1;
-let userId = "/?user="+user;
+let user = 0;
+let userId = user>0? "/?user="+user:"";
 const  endpoint = "https://jsonplaceholder.typicode.com/users";
 // axios.get(myUrl+"/"+userId).
 //             then(res=>{getData=res})
