@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
+import countryData from '../../data/countryData.js';
+
 
 function FormElement(props) {
 
     let config = props.config;
+    let countries = [];
+    console.log("CONFIG IS ",config)
+    let listFromConfig = config.forEach(obj=>obj.field==="country").type[1];
+    countries = [...listFromConfig];
+    let listFromData = countryData.map(el=>[el.name, el.code]);
+    countries = [...countries,...listFromData]
     let render = "";
     switch (config.type[0]) {
 
@@ -28,7 +36,7 @@ function FormElement(props) {
                         <div className="col-md-9">
                             <select className="form-control" name={config.field} type={config.select} value={null}
                              required={config.validate} onChange={props.handlers.handleChange}>
-                                {config.type[1].map((el, i) => <option key={i} value={el[1]}>{el[0]}</option>)}
+                                {countries.map((el, i) => <option key={i} value={el[1]}>{el[0]}</option>)}
                             </select>
                         </div>
                     </div>
