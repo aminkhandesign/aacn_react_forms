@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import countryData from '../../data/countryData.js';
+import stateData from '../../data/stateData.js';
 
 
 function FormElement(props) {
 
+    console.log("THESE ARE THE FINAL PROPS",props.mystate)
     let config = props.config;
     let countries = [];
     console.log("CONFIG IS ",config)
-    let listFromConfig = config.forEach(obj=>obj.field==="country").type[1];
-    countries = [...listFromConfig];
+    // creating a list of country codes  -- problem: not seeing config as aan iterable array
+
+   // countries = [...listFromConfig];
     let listFromData = countryData.map(el=>[el.name, el.code]);
+    let fillOptions =(data)=>data.map(el=>[el.name, el.code])
+   // console.log("THE FINAL LIST:"+"\n"+listFromData)
     countries = [...countries,...listFromData]
     let render = "";
     switch (config.type[0]) {
@@ -34,9 +39,14 @@ function FormElement(props) {
                     <div className="form-group row">
                         <label htmlFor={config.field} className="col-md-3 control-label">{config.label}</label>
                         <div className="col-md-9">
-                            <select className="form-control" name={config.field} type={config.select} value={null}
+                            <select size={0} className="form-control" name={config.field} type={config.select} 
                              required={config.validate} onChange={props.handlers.handleChange}>
-                                {countries.map((el, i) => <option key={i} value={el[1]}>{el[0]}</option>)}
+                                {config.field==="country"?fillOptions(countryData).map((el, i) =>
+                                <option key={i} selected={el[0]===props.myState.payload.country?true:false} value={el[1]} >{el[0] || "UNITED STATES"} 
+                                </option>):
+                                fillOptions(stateData).map((el, i) =>
+                                <option key={i} value={el[1]} selected={el[0]===props.myState.payload.country?true:false}>{el[0]} 
+                                </option>)}
                             </select>
                         </div>
                     </div>

@@ -6,7 +6,7 @@ test('convert json object to fields', () => {
   });
 
   test('convert json object to fields', () => {
-    expect(extractFields({one:1,two:{a:2,b:3}})).toEqual(["one","two",["a","b"]]w);
+    expect(extractFields({one:1,two:{a:2,b:3}})).toEqual(["one","two",["a","b"]]);
   });
 
 

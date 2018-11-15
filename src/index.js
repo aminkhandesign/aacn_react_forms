@@ -5,8 +5,8 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './components/eco-systems/app';
 import * as serviceWorker from './serviceWorker';
-
-ReactDOM.render(<App />, document.getElementById('root'));
+const root = document.getElementById('root')
+ReactDOM.render(<App unMount={()=>ReactDOM.unmountComponentAtNode(root)}/>, root);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

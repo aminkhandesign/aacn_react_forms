@@ -12,13 +12,18 @@ const placeholder1 = "https://jsonplaceholder.typicode.com/posts";
 const placeholder2 = "https://jsonplaceholder.typicode.com/users";
 
 // querystring parameters
-let userId = "1F5A81E7-2B73-4D5F-B087-3267F9E14BC8";
+let qs = require('qs');
+let custKey = qs.parse(window.location.search, { ignoreQueryPrefix: true }).custKey;
 
 // local variables
-const rootUrl = 'http://servicesdev.aacn.org/customer';
-let myUrl = rootUrl + "/api/customers/" + userId + "/addresses";
-let endpoint = rootUrl + "/api/customers/" + userId + "/addresses";
-let getData = { fname: "peter", line1: "this is address" }
+const rootUrl = 'http://servicesdev.aacn.org/customer'; //'http://servicesdev.aacn.org/customer'; //'http://localhost:54265';
+let myUrl = rootUrl + "/api/customers/" + custKey + "/addresses";
+let endpoint = rootUrl + "/api/customers/" + custKey + "/addresses";
+let getData;
+let mailAddId;
+
+// logging
+console.log("custKey: " + custKey);
 console.log(myUrl);
 
 //We need to perform a get request for a json object that will populate our form 
@@ -37,13 +42,17 @@ xhttp.onreadystatechange = function () {
                     break;
                 }
             }
-            if (getData != null)
+            if (getData != null) {
                 console.log("Response-Address", getData);
+            }
         }
     }
 };
 xhttp.open("GET", myUrl, false);
 xhttp.send();
+
+
+getData = {line1:"test",line2:"test2",state:"CO", country:"UGANDA"}
 
 class App extends Component {
     constructor(props) {
@@ -52,7 +61,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        // axios.get(myUrl+"/"+userId).
+        // axios.get(myUrl+"/"+custKey).
         //             then(res=>{getData=res})
         if (!(typeof getData === "object")) {
             axios.get(getData).then(res => {
@@ -60,7 +69,7 @@ class App extends Component {
                 return res.data[0];
             }).then(data => {
                 this.setState({ myGet: { data } });
-                console.log("APP CDMount:", this.state.myGet)
+                console.log("APP CDMount:", this.state.myGet);
             });
         }
     }
@@ -74,7 +83,7 @@ class App extends Component {
         console.log("APP RENDER", this.state.myGet);
         return (
             <>
-                <AACN_FORM endpoint={endpoint} userId={userId} myGetData={myVal} config={myConfig} myStates={stateData} myCountries={countryData} />
+                <AACN_FORM unMount={this.props.unMount} endpoint={endpoint} custKey={custKey} myGetData={myVal} config={myConfig} myStates={stateData} myCountries={countryData} />
             </>
         );
     }

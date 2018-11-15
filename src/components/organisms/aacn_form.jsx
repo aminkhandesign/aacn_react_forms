@@ -13,13 +13,13 @@ class AACN_FORM extends Component {
         this.state = { payload: { ...this.payLoadFromProps } }
     }
 
-    renderForm() {
+    renderForm(info) {
 
         let formElements = [];
         if (this.props.config) {
             formElements =
                 this.props.config[1].map(
-                    el => <FormElement key={el.field} mystate={this.state} handlers={this.handlers} config={el}/>);
+                    el => <FormElement  key={el.field} mystate={this.state} handlers={this.handlers} config={el}/>);
         }
         return formElements;
     }
@@ -41,9 +41,18 @@ class AACN_FORM extends Component {
     handleChange = (ev) => {
         ev.preventDefault();
         ev.persist();
-        console.log("key pressed!!");
-        this.setState((prevState => ({ payload: { ...prevState.payload, ...{ [ev.target.name]: ev.target.value[1] } } })));
-        console.log("aacn_form.jsx-handleChange(): " + ev.target.value);
+        console.log("FIELD CHANGED",ev.target.name)
+       // if(ev.target.name!=="country" || ev.target.name!=="state"){
+        this.setState((prevState => ({ payload: { ...prevState.payload, ...{ [ev.target.name]: ev.target.value } } })));
+        console.log("aacn_form.jsx-handleChange(): " + ev.target.name); //}
+        // else  if (ev.target.name==="country" ) {
+        //     this.setState((prevState => ({ payload: { ...prevState.payload, ...{ [ev.target.name]: ev.target.value } } })));
+        //     console.log("THE SELECT FORM WAS CHANGED", ev.target.name)
+        // }
+        // else if (ev.target.name==="state" ){
+        //     this.setState((prevState => ({ payload: { ...prevState.payload, ...{ [ev.target.name]: ev.target.value } } })));
+        //     console.log("THE SELECT FORM WAS CHANGED", ev.target.name)
+        // }
     } 
 
     handleSubmit = (ev) => {
@@ -63,17 +72,17 @@ class AACN_FORM extends Component {
         let formInfo = JSON.stringify(this.state.payload);
         console.log("FormInfo: " + formInfo);
         let formInfo_obj = { ...this.state.payload, id: userId }
-        let endPoint = this.props.endpoint;
+        let endPoint = this.props.endpoint + "/" + this.state.payload["key"];
         console.log("endpoint: ", endPoint);
         const postData = {
-            method: "POST",
+            method: "PUT",
             accept: 'application/json',
             data: formInfo_obj,
             url: endPoint,
             mode: "no-cors", // no-cors, cors, *same-origin
             cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
             headers: {
-                "Content-Type": "application/json; charset=utf-8",
+                "Content-Type": "application/json; charset=utf-8"
                 // "Content-Type": "application/x-www-form-urlencoded",
             }
         }
@@ -101,7 +110,7 @@ class AACN_FORM extends Component {
             console.log("AUTO FILL:", i in this.state.payload, i);
             if (i in this.state.payload) {
                 if(i!=="country") this.setState(prevState => ({ payload: { ...prevState.payload, [i]: localData[i] } }));
-                else {  this.setState(prevState => ({ payload: { ...prevState.payload, country: localData.key} }))}
+                else {  this.setState(prevState => ({ payload: { ...prevState.payload, country: localData.country} }))}
             }
         }
     }
@@ -109,7 +118,7 @@ class AACN_FORM extends Component {
     componentDidMount() {
         this.autofill();
         console.log("FORM CDMount ", this.props.myGetData);
-        const myCountries= countryData
+
     }
 
     componentWillReceiveProps(next) {
@@ -122,7 +131,7 @@ class AACN_FORM extends Component {
             <form className="form-group" >
                 <div className="modal-dialog vertical-align-center">
                     <div className="modal-content">
-                        <div className="modal-header "><h4>{this.props.config[0]}</h4><button type="button" className="close pull-right" data-dismiss="modal">X</button></div>
+                        <div className="modal-header "><h4>{this.props.config[0]}</h4><button type="button" className="close pull-right" onClick={this.props.unMount} data-dismiss="modal">X</button></div>
                         <div className="col-sm-12 h6">
                             {this.renderForm()}
                         </div>
