@@ -8,6 +8,21 @@ function FormElement(props) {
     console.log("THESE ARE THE FINAL PROPS",props.mystate)
     let config = props.config;
     let countries = [];
+    let selectField = ()=>{
+        console.log("SelectField fired",props.mystate.payload.country)
+        let val = 'defaultValue'
+        switch (config.field) {
+            case "country":
+            val =  props.mystate.payload.country;
+            break;
+            case "state":
+            val = props.mystate.payload.state
+            break;
+
+        }
+        //console.log("THIS IS THE SCALAR PROBLEM",props.mystate.payload.country,"STATE",props.mystate.payload.state)
+        return val
+    }
     console.log("CONFIG IS ",config)
     // creating a list of country codes  -- problem: not seeing config as aan iterable array
 
@@ -39,13 +54,13 @@ function FormElement(props) {
                     <div className="form-group row">
                         <label htmlFor={config.field} className="col-md-3 control-label">{config.label}</label>
                         <div className="col-md-9">
-                            <select size={0} className="form-control" name={config.field} type={config.select} 
+                            <select  value={selectField()} size={0} className="form-control" name={config.field} type={config.select} 
                              required={config.validate} onChange={props.handlers.handleChange}>
                                 {config.field==="country"?fillOptions(countryData).map((el, i) =>
-                                <option key={i} selected={el[0]===props.myState.payload.country?true:false} value={el[1]} >{el[0] || "UNITED STATES"} 
+                                <option key={i}  value={el[1]} >{el[0]} 
                                 </option>):
                                 fillOptions(stateData).map((el, i) =>
-                                <option key={i} value={el[1]} selected={el[0]===props.myState.payload.country?true:false}>{el[0]} 
+                                <option key={i} value={el[1]} >{el[0]} 
                                 </option>)}
                             </select>
                         </div>

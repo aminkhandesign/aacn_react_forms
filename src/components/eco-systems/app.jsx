@@ -14,17 +14,19 @@ const placeholder2 = "https://jsonplaceholder.typicode.com/users";
 // querystring parameters
 let qs = require('qs');
 let custKey = qs.parse(window.location.search, { ignoreQueryPrefix: true }).custKey;
+let env = qs.parse(window.location.search, { ignoreQueryPrefix: true }).env || "Prod";
+if (env === "Prod") env = "";
 
 // local variables
-const rootUrl = 'http://servicesdev.aacn.org/customer'; //'http://servicesdev.aacn.org/customer'; //'http://localhost:54265';
+const rootUrl = 'http://services' + env + '.aacn.org/customer'; //'http://localhost:54265';
 let myUrl = rootUrl + "/api/customers/" + custKey + "/addresses";
 let endpoint = rootUrl + "/api/customers/" + custKey + "/addresses";
 let getData;
-let mailAddId;
 
 // logging
 console.log("custKey: " + custKey);
-console.log(myUrl);
+console.log("rootUrl: " + rootUrl);
+console.log("myUrl: " + myUrl);
 
 //We need to perform a get request for a json object that will populate our form 
 var xhttp = new XMLHttpRequest();
@@ -49,10 +51,11 @@ xhttp.onreadystatechange = function () {
     }
 };
 xhttp.open("GET", myUrl, false);
-xhttp.send();
+//xhttp.send();
 
 
-getData = {line1:"test",line2:"test2",state:"CO", country:"UGANDA"}
+getData = {line1:"test",line2:"test2", state:"VT", country:"JAPAN"}
+console.log("MY DATA :",getData)
 
 class App extends Component {
     constructor(props) {

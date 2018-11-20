@@ -13,6 +13,4 @@ const myConfig =
         ]
     ];
 
-
-
 export default myConfig

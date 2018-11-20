@@ -4,30 +4,35 @@ import axios from 'axios';
 import stateData from '../../data/stateData.js';
 import countryData from '../../data/countryData.js';
 
+
+// form component constructor. This will take props from App
+// Props passed down to this component are unMount, endpoint, custKey, myGetData, config, myStates, myCountries
+
 class AACN_FORM extends Component {
     constructor(props) {
         super(props);
 
         //this is our state which we will have to poulate from the values in our config object
-        this.payLoadFromProps = this.setInitialState();
+        this.payLoadFromProps = this.setInitialState(props.config);
         this.state = { payload: { ...this.payLoadFromProps } }
     }
 
-    renderForm(info) {
+
+    //function that renders form atomic elements based on config, in the return of the render() method
+    renderForm(formConfig) {
 
         let formElements = [];
-        if (this.props.config) {
-            formElements =
-                this.props.config[1].map(
-                    el => <FormElement  key={el.field} mystate={this.state} handlers={this.handlers} config={el}/>);
+        if (formConfig) {
+            formElements = formConfig[1].map( el => <FormElement  key={el.field} mystate={this.state} handlers={this.handlers} config={el}/>);
         }
+
         return formElements;
     }
 
-    setInitialState = () => {
-        let formFields = [...this.props.config[1]];
+    //this function extracts out state from our config file passed down through props
+    setInitialState = (formConfig) => {
+        let formFields = [...formConfig[1]];
         console.log(formFields)
-        let myList = formFields.map(el => el.field);
         let payLoadFromProps = {};
         for (let i in formFields) {
             payLoadFromProps[formFields[i].field] = "";
@@ -57,9 +62,6 @@ class AACN_FORM extends Component {
 
     handleSubmit = (ev) => {
         ev.preventDefault();
-
-       
-
         console.log("submit fired");
         let userId = this.props.userId;
         // let countryToCheck = this.state.payload.country;
@@ -68,7 +70,7 @@ class AACN_FORM extends Component {
         // console.log("THE ELEMENT TO CHECK",code)
         // this.setState(prevState=>({payload: {...prevState.payload,country:code.key}}))
 
-        
+
         let formInfo = JSON.stringify(this.state.payload);
         console.log("FormInfo: " + formInfo);
         let formInfo_obj = { ...this.state.payload, id: userId }
@@ -88,19 +90,24 @@ class AACN_FORM extends Component {
         }
         axios(postData, formInfo_obj).then(function(response) {
             console.log("SUCESSS PAYLOAD: ", formInfo_obj)})
-        .catch(err => console.log("SOMETHING WENT WRONG", err,"\n","PAYLOAD",formInfo_obj));
-        ;
+            .catch(err => console.log("SOMETHING WENT WRONG", err, "\n", "PAYLOAD", formInfo_obj));
+        this.closeParent();
     }
 
     handleCancel = (ev) => {
+        console.log('handleCancel called.');
         ev.preventDefault();
-
-        this.setState(prevState => ({ payload: this.payLoadFromProps }));
+        this.setState(prevState => ({ payload: this.payLoadFromProps }));    
+        this.closeParent();
     }
 
     keyCount = 0;
 
     handlers = { handleChange: this.handleChange, handleSubmit: this.handleSubmit, handleFocus: this.handleFocus }
+
+    closeParent() {
+        window.parent.closeModal();
+    }
 
     autofill() {
         let localData = this.props.myGetData;
@@ -130,10 +137,10 @@ class AACN_FORM extends Component {
         return (
             <form className="form-group" >
                 <div className="modal-dialog vertical-align-center">
-                    <div className="modal-content">
-                        <div className="modal-header "><h4>{this.props.config[0]}</h4><button type="button" className="close pull-right" onClick={this.props.unMount} data-dismiss="modal">X</button></div>
-                        <div className="col-sm-12 h6">
-                            {this.renderForm()}
+                    <div  className="modal-content">
+                        <div  className="modal-header "><h4>{this.props.config[0]}</h4><button type="button" className="close pull-right" onClick={this.handleCancel} data-dismiss="modal">X</button></div>
+                        <div style={{flex:"0 1 auto"}} className="col-sm-12 h6">
+                            {this.renderForm(this.props.config)}
                         </div>
                         <div className="modal-footer">
                             <button onClick={this.handleCancel} className="btn btn-primary">CANCEL</button>
