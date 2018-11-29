@@ -1,6 +1,11 @@
+
 import React, { Component } from 'react';
 import countryData from '../../data/countryData.js';
 import stateData from '../../data/stateData.js';
+
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
+
 
 
 function FormElement(props) {
@@ -8,6 +13,9 @@ function FormElement(props) {
     console.log("THESE ARE THE FINAL PROPS",props.mystate)
     let config = props.config;
     let countries = [];
+    let countryKey = (countryData.filter(el=>{ console.log("CHECK COUNTRY",el.name,"AGAINST", props.mystate.payload.country); return el.name===props.mystate.payload.country})[0]).key;
+    console.log("COUNTRY KEY", countryKey)
+    
     let selectField = ()=>{
         console.log("SelectField fired",props.mystate.payload.country)
         let val = 'defaultValue'
@@ -28,7 +36,9 @@ function FormElement(props) {
 
    // countries = [...listFromConfig];
     let listFromData = countryData.map(el=>[el.name, el.code]);
-    let fillOptions =(data)=>data.map(el=>[el.name, el.code])
+    let stateFromData = stateData.filter(el=>el.countryKey===countryKey)
+    // added countryKey to array to check against country
+    let fillOptions =(data)=>data.map(el=>[el.name, el.code, el.countryKey||el.key])
    // console.log("THE FINAL LIST:"+"\n"+listFromData)
     countries = [...countries,...listFromData]
     let render = "";
@@ -56,12 +66,10 @@ function FormElement(props) {
                         <div className="col-md-9">
                             <select  value={selectField()} size={0} className="form-control" name={config.field} type={config.select} 
                              required={config.validate} onChange={props.handlers.handleChange}>
-                                {config.field==="country"?fillOptions(countryData).map((el, i) =>
-                                <option key={i}  value={el[1]} >{el[0]} 
+                                {config.field==="country"?fillOptions(countryData).map((el, i) => <option key={i}  value={el[1]} >{el[0]} 
                                 </option>):
-                                fillOptions(stateData).map((el, i) =>
-                                <option key={i} value={el[1]} >{el[0]} 
-                                </option>)}
+                                fillOptions(stateFromData).map((el, i) =>  <option key={i} value={el[1]} >{el[0]} </option>)}
+                             })}
                             </select>
                         </div>
                     </div>

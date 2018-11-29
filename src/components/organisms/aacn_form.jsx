@@ -70,7 +70,7 @@ class AACN_FORM extends Component {
         // console.log("THE ELEMENT TO CHECK",code)
         // this.setState(prevState=>({payload: {...prevState.payload,country:code.key}}))
 
-
+        
         let formInfo = JSON.stringify(this.state.payload);
         console.log("FormInfo: " + formInfo);
         let formInfo_obj = { ...this.state.payload, id: userId }
@@ -91,7 +91,7 @@ class AACN_FORM extends Component {
         axios(postData, formInfo_obj).then(function(response) {
             console.log("SUCESSS PAYLOAD: ", formInfo_obj)})
             .catch(err => console.log("SOMETHING WENT WRONG", err, "\n", "PAYLOAD", formInfo_obj));
-        this.closeParent();
+        //this.closeParent();
     }
 
     handleCancel = (ev) => {

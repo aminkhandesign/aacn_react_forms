@@ -4,10 +4,10 @@ const stateData =
             "key": "4bdbe86c-bb0f-4b11-9eff-6aaa2d9c58f0",
             "code": "002",
             "name": "Aimeliik",
-            "countryKey": "00000000-0000-0000-0000-000000000000"
+            "countryKey": "bc4b70f8-280e-4bb0-b935-9f728c50e183"
         },
         {
-            "key": "147caa18-191e-4c5c-91f3-91f87b98fdf7",
+            "key": "0634e625-e473-49d7-a7dd-17020eec6ac7",
             "code": "004",
             "name": "Airai",
             "countryKey": "00000000-0000-0000-0000-000000000000"
@@ -231,7 +231,7 @@ const stateData =
         {
             "key": "006c0b33-3f97-4e05-a1db-c384e5bf3ab2",
             "code": "2",
-            "name": "Kärnten",
+            "name": "Kï¿½rnten",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
@@ -291,7 +291,7 @@ const stateData =
         {
             "key": "eafb2b94-85b5-4913-ac9f-aa70e3d39947",
             "code": "3",
-            "name": "Niederösterreich",
+            "name": "Niederï¿½sterreich",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
@@ -315,7 +315,7 @@ const stateData =
         {
             "key": "c18a319d-45f7-470d-baa5-16056dd7e092",
             "code": "4",
-            "name": "Oberösterreich",
+            "name": "Oberï¿½sterreich",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
@@ -453,7 +453,7 @@ const stateData =
         {
             "key": "8798288b-9843-4173-8191-56b68446afee",
             "code": "AP",
-            "name": "Amapá",
+            "name": "Amapï¿½",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
@@ -487,9 +487,9 @@ const stateData =
             "countryKey": "4ddf1e0b-ad35-41cf-9d87-e43ad0c2dfde"
         },
         {
-            "key": "14267294-e825-463f-b352-e9615341e2d2",
+            "key": "0634e625-e473-49d7-a7dd-17020eec6ac7",
             "code": "B",
-            "name": "Anzoátegui",
+            "name": "Anzoï¿½tegui",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
@@ -549,7 +549,7 @@ const stateData =
         {
             "key": "7e59351d-930f-4b4f-a5ec-50e1ad94c009",
             "code": "BW",
-            "name": "Baden-Württemberg",
+            "name": "Baden-Wï¿½rttemberg",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
@@ -574,7 +574,7 @@ const stateData =
             "key": "6915afa2-c832-4ea3-a88b-1504a238816b",
             "code": "CA",
             "name": "California",
-            "countryKey": "9327c52c-9880-49e2-aab1-2c92a2ea88b2"
+            "countryKey": "bc4b70f8-280e-4bb0-b935-9f728c50e183"
         },
         {
             "key": "ee8199a8-f1f2-44a8-a50d-1873ae22000f",
@@ -585,7 +585,7 @@ const stateData =
         {
             "key": "1c38290e-c597-468b-a476-1c898dd33fc0",
             "code": "CE",
-            "name": "Ceará",
+            "name": "Cearï¿½",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
@@ -604,7 +604,7 @@ const stateData =
             "key": "4ab93a15-fd3e-4e25-aba8-5018c85e81ab",
             "code": "CO",
             "name": "Colorado",
-            "countryKey": "182fca44-2276-4e4d-85d6-8580b0bb07c2"
+            "countryKey": "bc4b70f8-280e-4bb0-b935-9f728c50e183"
         },
         {
             "key": "b89f0d93-03e3-4321-a35f-aea17c6615f1",
@@ -634,7 +634,7 @@ const stateData =
             "key": "c19fac33-7b06-4755-b738-dfe816b29ca7",
             "code": "CT",
             "name": "Connecticut",
-            "countryKey": "c102b8ba-47c7-4223-9ee0-0a60ee4fbe85"
+            "countryKey": "bc4b70f8-280e-4bb0-b935-9f728c50e183"
         },
         {
             "key": "d1dfefa3-4c48-4eae-a080-973e38bc393b",
@@ -723,13 +723,13 @@ const stateData =
         {
             "key": "27f955ad-74a8-4d21-b2fe-206c88daa0aa",
             "code": "ES",
-            "name": "Espírito Santo",
+            "name": "Espï¿½rito Santo",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
             "key": "3ac803c5-cdfa-448c-853f-6d7251ac3647",
             "code": "F",
-            "name": "Bolívar",
+            "name": "Bolï¿½var",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
@@ -783,7 +783,7 @@ const stateData =
         {
             "key": "1c508fe6-8a7f-4546-ac1e-49068cb5dd82",
             "code": "GO",
-            "name": "Goiás",
+            "name": "Goiï¿½s",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
@@ -855,7 +855,7 @@ const stateData =
         {
             "key": "f43eba1b-0275-4277-ae91-196ff588c1bf",
             "code": "I",
-            "name": "Falcón",
+            "name": "Falcï¿½n",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
@@ -891,7 +891,7 @@ const stateData =
         {
             "key": "ec1a2122-1895-460f-b2a2-b9ad051b6cf9",
             "code": "J",
-            "name": "Guárico",
+            "name": "Guï¿½rico",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
@@ -1017,7 +1017,7 @@ const stateData =
         {
             "key": "e3116b02-0876-44cd-90bd-8d27032194e0",
             "code": "L",
-            "name": "Mérida",
+            "name": "Mï¿½rida",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
@@ -1041,7 +1041,7 @@ const stateData =
         {
             "key": "70f8c0b9-8d01-46a3-b94f-51a9dfc035e3",
             "code": "MA",
-            "name": "Maranhão",
+            "name": "Maranhï¿½o",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
@@ -1065,7 +1065,7 @@ const stateData =
         {
             "key": "7f439b81-7a4b-4cac-b082-c804f4d5642e",
             "code": "MEX",
-            "name": "México",
+            "name": "Mï¿½xico",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
@@ -1089,7 +1089,7 @@ const stateData =
         {
             "key": "858c696c-7337-4b3a-a61a-103de7de95bb",
             "code": "MIC",
-            "name": "Michoacán",
+            "name": "Michoacï¿½n",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
@@ -1239,7 +1239,7 @@ const stateData =
         {
             "key": "32217bed-5eaf-43ec-bcf8-37e7b83efb63",
             "code": "NLE",
-            "name": "Nuevo León",
+            "name": "Nuevo Leï¿½n",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
@@ -1365,7 +1365,7 @@ const stateData =
         {
             "key": "3be1225c-dc4c-4164-a70c-c6c08162affb",
             "code": "PA",
-            "name": "Pará",
+            "name": "Parï¿½",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
@@ -1383,7 +1383,7 @@ const stateData =
         {
             "key": "4ac1a243-9a37-4010-bc42-424449639102",
             "code": "PB",
-            "name": "Paraíba",
+            "name": "Paraï¿½ba",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
@@ -1395,7 +1395,7 @@ const stateData =
         {
             "key": "e49535a1-6cbd-4624-ab21-30489d94f899",
             "code": "PI",
-            "name": "Piauí",
+            "name": "Piauï¿½",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
@@ -1413,7 +1413,7 @@ const stateData =
         {
             "key": "08aabf34-5956-4db1-94c8-4f85389354c6",
             "code": "PR",
-            "name": "Paraná",
+            "name": "Paranï¿½",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
@@ -1431,7 +1431,7 @@ const stateData =
         {
             "key": "17317c0a-a0c6-4095-954e-755f3d427f83",
             "code": "QUE",
-            "name": "Querétaro",
+            "name": "Querï¿½taro",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
@@ -1473,7 +1473,7 @@ const stateData =
         {
             "key": "f2804e8a-353d-4b5d-ab14-1db66914fc7b",
             "code": "RO",
-            "name": "Rondônia",
+            "name": "Rondï¿½nia",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
@@ -1509,7 +1509,7 @@ const stateData =
         {
             "key": "b3d921e6-dd30-4931-96c1-bc354de9a228",
             "code": "S",
-            "name": "Táchira",
+            "name": "Tï¿½chira",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
@@ -1575,7 +1575,7 @@ const stateData =
         {
             "key": "24dc3b5e-efca-4b7c-bdbc-850f832331ac",
             "code": "SLP",
-            "name": "San Luis Potosí",
+            "name": "San Luis Potosï¿½",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
@@ -1599,7 +1599,7 @@ const stateData =
         {
             "key": "14334322-b35a-4603-8305-21b2cdf08fb2",
             "code": "SP",
-            "name": "São Paulo",
+            "name": "Sï¿½o Paulo",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
@@ -1641,7 +1641,7 @@ const stateData =
         {
             "key": "4cf3d67d-c6f3-492d-9ffa-6ec10edbb74f",
             "code": "TH",
-            "name": "Thüringen",
+            "name": "Thï¿½ringen",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
@@ -1803,7 +1803,7 @@ const stateData =
         {
             "key": "2bf5f8cf-8457-41be-bd4a-522c0d98d171",
             "code": "YUC",
-            "name": "Yucatán",
+            "name": "Yucatï¿½n",
             "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {

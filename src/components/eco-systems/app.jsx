@@ -1,3 +1,5 @@
+
+
 import React, { Component } from 'react';
 import AACN_FORM from '../organisms/aacn_form.jsx';
 import axios from 'axios';
@@ -6,6 +8,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import myConfig from '../../data/form-config.js';
 import stateData from '../../data/stateData.js';
 import countryData from '../../data/countryData.js';
+
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 
 // to be removed
 const placeholder1 = "https://jsonplaceholder.typicode.com/posts";
