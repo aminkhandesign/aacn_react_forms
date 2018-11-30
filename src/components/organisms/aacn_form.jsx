@@ -32,7 +32,7 @@ class AACN_FORM extends Component {
     //this function extracts out state from our config file passed down through props
     setInitialState = (formConfig) => {
         let formFields = [...formConfig[1]];
-        console.log(formFields)
+        console.log("formCOnfig sent to intial state",formFields)
         let payLoadFromProps = {};
         for (let i in formFields) {
             payLoadFromProps[formFields[i].field] = "";
@@ -46,6 +46,7 @@ class AACN_FORM extends Component {
     handleChange = (ev) => {
         ev.preventDefault();
         ev.persist();
+        this.forceUpdate();
         console.log("FIELD CHANGED",ev.target.name)
        // if(ev.target.name!=="country" || ev.target.name!=="state"){
         this.setState((prevState => ({ payload: { ...prevState.payload, ...{ [ev.target.name]: ev.target.value } } })));
@@ -63,6 +64,7 @@ class AACN_FORM extends Component {
     handleSubmit = (ev) => {
         ev.preventDefault();
         console.log("submit fired");
+        this.forceUpdate()
         let userId = this.props.userId;
         // let countryToCheck = this.state.payload.country;
         // console.log("COUNTRY ENTERED AS:",this.state.payload.country )

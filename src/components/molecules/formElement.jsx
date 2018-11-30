@@ -13,10 +13,11 @@ function FormElement(props) {
     console.log("THESE ARE THE FINAL PROPS",props.mystate)
     let config = props.config;
     let countries = [];
-    let countryKey = (countryData.filter(el=>{ console.log("CHECK COUNTRY",el.name,"AGAINST", props.mystate.payload.country); return el.name===props.mystate.payload.country})[0]).key;
+    let countryKey = (countryData.filter(el=>el.name===props.mystate.payload.country)[0]).key;
     console.log("COUNTRY KEY", countryKey)
     
     let selectField = ()=>{
+ 
         console.log("SelectField fired",props.mystate.payload.country)
         let val = 'defaultValue'
         switch (config.field) {
@@ -29,6 +30,7 @@ function FormElement(props) {
 
         }
         //console.log("THIS IS THE SCALAR PROBLEM",props.mystate.payload.country,"STATE",props.mystate.payload.state)
+
         return val
     }
     console.log("CONFIG IS ",config)
@@ -37,6 +39,7 @@ function FormElement(props) {
    // countries = [...listFromConfig];
     let listFromData = countryData.map(el=>[el.name, el.code]);
     let stateFromData = stateData.filter(el=>el.countryKey===countryKey)
+
     // added countryKey to array to check against country
     let fillOptions =(data)=>data.map(el=>[el.name, el.code, el.countryKey||el.key])
    // console.log("THE FINAL LIST:"+"\n"+listFromData)

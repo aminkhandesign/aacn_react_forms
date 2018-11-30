@@ -35,51 +35,44 @@ console.log("myUrl: " + myUrl);
 
 //We need to perform a get request for a json object that will populate our form 
 var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function () {
-    if (this.readyState === 4 && this.status === 200) {
-        let responseData = JSON.parse(xhttp.responseText);
-        console.log("Response-Full", responseData);
-        if (responseData.result != null) {
-            getData = responseData.result[0];
-            // Find the right address
-            let count; //not iterating??
-            for (count = 0; count < responseData.result.length; count++) {
-                if (responseData.result[count].addressType === "Mailing") {
-                    getData = responseData.result[count];
-                    break;
-                }
-            }
-            if (getData != null) {
-                console.log("Response-Address", getData);
-            }
-        }
-    }
-};
-xhttp.open("GET", myUrl, false);
+// xhttp.onreadystatechange = function () {
+//     if (this.readyState === 4 && this.status === 200) {
+//         let responseData = JSON.parse(xhttp.responseText);
+//         console.log("Response-Full", responseData);
+//         if (responseData.result != null) {
+//             getData = responseData.result[0];
+//             // Find the right address
+//             let count; //not iterating??
+//             for (count = 0; count < responseData.result.length; count++) {
+//                 if (responseData.result[count].addressType === "Mailing") {
+//                     getData = responseData.result[count];
+//                     break;
+//                 }
+//             }
+//             if (getData != null) {
+//                 console.log("Response-Address", getData);
+//             }
+//         }
+//     }
+// };
+//xhttp.open("GET", myUrl, false);
 //xhttp.send();
 
 
-getData = {line1:"test",line2:"test2", state:"VT", country:"JAPAN"}
+getData = {name:"Amin Khan", line1:"test",line2:"test2", state:"CA", country:"UNITED STATES"}
 console.log("MY DATA :",getData)
 
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = { payload: {}, myGet: { ...getData } }
+        this.state = { isLoading:true , payload: {}, myGet: { ...getData } }
     }
 
     componentDidMount() {
-        // axios.get(myUrl+"/"+custKey).
-        //             then(res=>{getData=res})
-        if (!(typeof getData === "object")) {
-            axios.get(getData).then(res => {
-                console.log("AXIOS:", res.data);
-                return res.data[0];
-            }).then(data => {
-                this.setState({ myGet: { data } });
-                console.log("APP CDMount:", this.state.myGet);
-            });
-        }
+
+    //fetch("https://jsonplaceholder.typicode.com/users").then(res=>{console.log("started",res);return res.json()}).then(json=>{this.setState({myGet: {...json[0]}, isLoading:false});console.log("MY JSON",json[0])})
+        this.setState({isLoading:false})
+
     }
 
     componentDidUpdate() {
@@ -89,6 +82,7 @@ class App extends Component {
     render() {
         let myVal = this.state.myGet;
         console.log("APP RENDER", this.state.myGet);
+        if(this.state.isLoading){ return <div style={{textAlign:"center",fontSize:"5rem"}}>LOADING...</div>}
         return (
             <>
                 <AACN_FORM unMount={this.props.unMount} endpoint={endpoint} custKey={custKey} myGetData={myVal} config={myConfig} myStates={stateData} myCountries={countryData} />

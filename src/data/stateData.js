@@ -4,7 +4,7 @@ const stateData =
             "key": "4bdbe86c-bb0f-4b11-9eff-6aaa2d9c58f0",
             "code": "002",
             "name": "Aimeliik",
-            "countryKey": "bc4b70f8-280e-4bb0-b935-9f728c50e183"
+            "countryKey": "00000000-0000-0000-0000-000000000000"
         },
         {
             "key": "0634e625-e473-49d7-a7dd-17020eec6ac7",
@@ -190,7 +190,7 @@ const stateData =
             "key": "27fa1218-fcc4-4dd2-9d43-240c3f9cbb71",
             "code": "14",
             "name": "Federal Territory of Kuala Lumpur",
-            "countryKey": "00000000-0000-0000-0000-000000000000"
+            "countryKey": "58456326-bd6d-4531-8201-fe1d484873da"
         },
         {
             "key": "3cc0eeb1-4e10-4347-9829-3a9039dd9b61",
@@ -424,13 +424,13 @@ const stateData =
             "key": "8475071b-d56c-4112-ad81-9152696788c8",
             "code": "AK",
             "name": "Alaska",
-            "countryKey": "00000000-0000-0000-0000-000000000000"
+            "countryKey": "bc4b70f8-280e-4bb0-b935-9f728c50e183"
         },
         {
             "key": "13b42082-bc34-42a1-b15d-7ee7e06c9ee1",
             "code": "AL",
             "name": "Alabama",
-            "countryKey": "c102b8ba-47c7-4223-9ee0-0a60ee4fbe85"
+            "countryKey": "bc4b70f8-280e-4bb0-b935-9f728c50e183"
         },
         {
             "key": "67d6e2fd-4caf-4076-afd2-2abe542f4d17",
@@ -484,7 +484,7 @@ const stateData =
             "key": "ee6ffe10-cdc2-4c30-b00c-6013d6f466ed",
             "code": "AZ",
             "name": "Arizona",
-            "countryKey": "4ddf1e0b-ad35-41cf-9d87-e43ad0c2dfde"
+            "countryKey": "bc4b70f8-280e-4bb0-b935-9f728c50e183"
         },
         {
             "key": "0634e625-e473-49d7-a7dd-17020eec6ac7",
@@ -514,13 +514,13 @@ const stateData =
             "key": "6095eaaf-7da1-4f02-b834-cad4ac38dfa3",
             "code": "BCN",
             "name": "Baja California",
-            "countryKey": "00000000-0000-0000-0000-000000000000"
+            "countryKey": "1d5e551f-048c-40e4-beea-991e405cdb16"
         },
         {
             "key": "7dc8e020-2e2c-4594-95ff-3b9d9f145df0",
             "code": "BCS",
             "name": "Baja California Sur",
-            "countryKey": "00000000-0000-0000-0000-000000000000"
+            "countryKey": "1d5e551f-048c-40e4-beea-991e405cdb16"
         },
         {
             "key": "6ebd059e-95de-43f0-ab4b-32e25ce08ff3",
@@ -577,7 +577,7 @@ const stateData =
             "countryKey": "bc4b70f8-280e-4bb0-b935-9f728c50e183"
         },
         {
-            "key": "ee8199a8-f1f2-44a8-a50d-1873ae22000f",
+            "key": "1d5e551f-048c-40e4-beea-991e405cdb16",
             "code": "CAM",
             "name": "Campeche",
             "countryKey": "00000000-0000-0000-0000-000000000000"
@@ -592,13 +592,13 @@ const stateData =
             "key": "2313ff80-153c-4fe2-b20b-1d99dd6c2583",
             "code": "CHH",
             "name": "Chihuahua",
-            "countryKey": "00000000-0000-0000-0000-000000000000"
+            "countryKey": "1d5e551f-048c-40e4-beea-991e405cdb16"
         },
         {
             "key": "8fdb5c0c-5c9b-4bb5-b0b3-6dfa306a7fc5",
             "code": "CHP",
             "name": "Chiapas",
-            "countryKey": "00000000-0000-0000-0000-000000000000"
+            "countryKey": "1d5e551f-048c-40e4-beea-991e405cdb16"
         },
         {
             "key": "4ab93a15-fd3e-4e25-aba8-5018c85e81ab",
@@ -616,7 +616,7 @@ const stateData =
             "key": "83a0a16f-7f35-4845-96ef-bb94e6268e3a",
             "code": "COL",
             "name": "Colima",
-            "countryKey": "00000000-0000-0000-0000-000000000000"
+            "countryKey": "1d5e551f-048c-40e4-beea-991e405cdb16"
         },
         {
             "key": "e655f044-1740-4faa-a485-0f20db68627c",
@@ -742,7 +742,7 @@ const stateData =
             "key": "7c338ef0-b741-43fd-8969-eef8b7495871",
             "code": "FL",
             "name": "Florida",
-            "countryKey": "c102b8ba-47c7-4223-9ee0-0a60ee4fbe85"
+            "countryKey": "bc4b70f8-280e-4bb0-b935-9f728c50e183"
         },
         {
             "key": "8ec17526-6afa-4643-b4fb-634fe85a63ee",
@@ -790,7 +790,7 @@ const stateData =
             "key": "6003f4ff-2283-4022-a29b-ff67426bfb5a",
             "code": "GRO",
             "name": "Guerrero",
-            "countryKey": "00000000-0000-0000-0000-000000000000"
+            "countryKey": "1d5e551f-048c-40e4-beea-991e405cdb16"
         },
         {
             "key": "0679546e-420e-45ab-904c-e8227ee92fff",
@@ -838,7 +838,7 @@ const stateData =
             "key": "8b43d8dd-1a3d-4157-97ba-74ff52e80ec9",
             "code": "HID",
             "name": "Hidalgo",
-            "countryKey": "00000000-0000-0000-0000-000000000000"
+            "countryKey": "1d5e551f-048c-40e4-beea-991e405cdb16"
         },
         {
             "key": "2ba181a5-cdde-430b-afbd-20cea6c1ffbf",
@@ -1174,13 +1174,13 @@ const stateData =
             "key": "563061a9-72d5-43bf-ad0e-262b2ba41ea0",
             "code": "NA",
             "name": "Nassarawa",
-            "countryKey": "00000000-0000-0000-0000-000000000000"
+            "countryKey": "f6ae129a-4c7d-46ad-8330-aac181228463"
         },
         {
             "key": "ecdcd774-f594-46bb-9db5-e607ad0782ec",
             "code": "NAY",
             "name": "Nayarit",
-            "countryKey": "00000000-0000-0000-0000-000000000000"
+            "countryKey": "1d5e551f-048c-40e4-beea-991e405cdb16"
         },
         {
             "key": "0fb2d892-a08b-4eee-a4ba-8ca1752d696e",
@@ -1240,7 +1240,7 @@ const stateData =
             "key": "32217bed-5eaf-43ec-bcf8-37e7b83efb63",
             "code": "NLE",
             "name": "Nuevo Le�n",
-            "countryKey": "00000000-0000-0000-0000-000000000000"
+            "countryKey": "1d5e551f-048c-40e4-beea-991e405cdb16"
         },
         {
             "key": "14a8683b-9c7e-488c-a172-3cc647084bb0",
@@ -1534,7 +1534,7 @@ const stateData =
             "key": "fd9021aa-c0c5-4ca2-8885-1451f5ff2c06",
             "code": "SD",
             "name": "South Dakota",
-            "countryKey": "9251449e-7b84-4915-822f-7943307fd2de"
+            "countryKey": "bc4b70f8-280e-4bb0-b935-9f728c50e183"
         },
         {
             "key": "18462beb-57de-440f-a62a-93f06e43e0d1",
@@ -1660,7 +1660,7 @@ const stateData =
             "key": "8b62ee37-302d-4530-9b2c-2b0eb9d7d627",
             "code": "TN",
             "name": "Tennessee",
-            "countryKey": "c102b8ba-47c7-4223-9ee0-0a60ee4fbe85"
+            "countryKey": "bc4b70f8-280e-4bb0-b935-9f728c50e183"
         },
         {
             "key": "dc18ad05-e21a-4bfa-9d64-48307e6afb90",
@@ -1684,7 +1684,7 @@ const stateData =
             "key": "85d36bea-54bb-4691-978f-3d4d39f14581",
             "code": "TX",
             "name": "Texas",
-            "countryKey": "9251449e-7b84-4915-822f-7943307fd2de"
+            "countryKey": "bc4b70f8-280e-4bb0-b935-9f728c50e183"
         },
         {
             "key": "18fac0ab-6aa9-4c61-81db-85a0c1840a1d",
@@ -1720,7 +1720,7 @@ const stateData =
             "key": "4f3b23b5-f933-40d5-8a91-62d43c791e19",
             "code": "VA",
             "name": "Virginia",
-            "countryKey": "c102b8ba-47c7-4223-9ee0-0a60ee4fbe85"
+            "countryKey": "bc4b70f8-280e-4bb0-b935-9f728c50e183"
         },
         {
             "key": "24244f1a-96b4-43a6-a4dc-9d1d9385317a",
@@ -1738,7 +1738,7 @@ const stateData =
             "key": "037f86f7-c2c6-4057-b274-e6589f2f5568",
             "code": "VT",
             "name": "Vermont",
-            "countryKey": "c102b8ba-47c7-4223-9ee0-0a60ee4fbe85"
+            "countryKey": "bc4b70f8-280e-4bb0-b935-9f728c50e183"
         },
         {
             "key": "6708c796-32b2-48dc-b148-d628d882dacc",
@@ -1750,7 +1750,7 @@ const stateData =
             "key": "608c4fe7-22e5-4960-bcce-c8fc45f801af",
             "code": "WA",
             "name": "Washington",
-            "countryKey": "182fca44-2276-4e4d-85d6-8580b0bb07c2"
+            "countryKey": "bc4b70f8-280e-4bb0-b935-9f728c50e183"
         },
         {
             "key": "9736a06c-05e8-47a3-b0ed-8929c795ff17",
@@ -1762,7 +1762,7 @@ const stateData =
             "key": "92bc6416-2050-44e8-8c6f-108c94076906",
             "code": "WI",
             "name": "Wisconsin",
-            "countryKey": "984904fc-247a-48b0-8744-525b0670cc03"
+            "countryKey": "bc4b70f8-280e-4bb0-b935-9f728c50e183"
         },
         {
             "key": "75f09e08-f6d7-4ef1-b1b8-42ec8ce66873",
