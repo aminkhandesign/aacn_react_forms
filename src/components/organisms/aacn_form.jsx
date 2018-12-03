@@ -15,6 +15,7 @@ class AACN_FORM extends Component {
         //this is our state which we will have to poulate from the values in our config object
         this.payLoadFromProps = this.setInitialState(props.config);
         this.state = { payload: { ...this.payLoadFromProps } }
+        this.stateFieldRef = React.createRef();
     }
 
 
@@ -23,7 +24,7 @@ class AACN_FORM extends Component {
 
         let formElements = [];
         if (formConfig) {
-            formElements = formConfig[1].map( el => <FormElement  key={el.field} mystate={this.state} handlers={this.handlers} config={el}/>);
+            formElements = formConfig[1].map( el => <FormElement inputRef ={this.stateFieldRef} key={el.field} mystate={this.state} handlers={this.handlers} config={el}/>);
         }
 
         return formElements;
@@ -47,6 +48,7 @@ class AACN_FORM extends Component {
         ev.preventDefault();
         ev.persist();
         this.forceUpdate();
+        console.log("THE REF IS ...",this.stateFieldRef.current );
         console.log("FIELD CHANGED",ev.target.name)
        // if(ev.target.name!=="country" || ev.target.name!=="state"){
         this.setState((prevState => ({ payload: { ...prevState.payload, ...{ [ev.target.name]: ev.target.value } } })));
@@ -64,7 +66,7 @@ class AACN_FORM extends Component {
     handleSubmit = (ev) => {
         ev.preventDefault();
         console.log("submit fired");
-        this.forceUpdate()
+
         let userId = this.props.userId;
         // let countryToCheck = this.state.payload.country;
         // console.log("COUNTRY ENTERED AS:",this.state.payload.country )
@@ -72,7 +74,8 @@ class AACN_FORM extends Component {
         // console.log("THE ELEMENT TO CHECK",code)
         // this.setState(prevState=>({payload: {...prevState.payload,country:code.key}}))
 
-        
+       
+        this.state.payload.state=this.stateFieldRef.current.value
         let formInfo = JSON.stringify(this.state.payload);
         console.log("FormInfo: " + formInfo);
         let formInfo_obj = { ...this.state.payload, id: userId }

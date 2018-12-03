@@ -70,7 +70,7 @@ class App extends Component {
 
     componentDidMount() {
 
-    //fetch("https://jsonplaceholder.typicode.com/users").then(res=>{console.log("started",res);return res.json()}).then(json=>{this.setState({myGet: {...json[0]}, isLoading:false});console.log("MY JSON",json[0])})
+    //fetch(myUrl).then(res=>{console.log("started",res);return res.json()}).then(json=>{this.setState({myGet: {...json[0]}, isLoading:false});console.log("MY JSON",json[0])})
         this.setState({isLoading:false})
 
     }
@@ -82,7 +82,7 @@ class App extends Component {
     render() {
         let myVal = this.state.myGet;
         console.log("APP RENDER", this.state.myGet);
-        if(this.state.isLoading){ return <div style={{textAlign:"center",fontSize:"5rem"}}>LOADING...</div>}
+        if(this.state.isLoading){ return <div style={{textAlign:"center",fontSize:"4rem"}}>LOADING...</div>}
         return (
             <>
                 <AACN_FORM unMount={this.props.unMount} endpoint={endpoint} custKey={custKey} myGetData={myVal} config={myConfig} myStates={stateData} myCountries={countryData} />

@@ -67,9 +67,9 @@ function FormElement(props) {
                     <div className="form-group row">
                         <label htmlFor={config.field} className="col-md-3 control-label">{config.label}</label>
                         <div className="col-md-9">
-                            <select  value={selectField()} size={0} className="form-control" name={config.field} type={config.select} 
+                            <select ref={config.field==="state"?props.inputRef:null}  value={selectField()} size={0} className="form-control" name={config.field} type={config.select} 
                              required={config.validate} onChange={props.handlers.handleChange}>
-                                {config.field==="country"?fillOptions(countryData).map((el, i) => <option key={i}  value={el[1]} >{el[0]} 
+                                {config.field==="country"?fillOptions(countryData).map((el, i) => <option  key={i}  value={el[1]} >{el[0]} 
                                 </option>):
                                 fillOptions(stateFromData).map((el, i) =>  <option key={i} value={el[1]} >{el[0]} </option>)}
                              })}
